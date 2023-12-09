@@ -6,9 +6,12 @@ def caesar_cipher(plaintext, key):
     cipherlist = []
     letters_len = len(letters)
     for c in plaintext:
-        pos = letters.index(c)
-        pos = (pos + key) % letters_len
-        cipherlist.append(letters[pos])
+        if c in letters:
+            pos = letters.index(c)
+            pos = (pos + key) % letters_len
+            cipherlist.append(letters[pos])
+        else:
+            cipherlist.append(c)
     return ''.join(cipherlist)
 
 
